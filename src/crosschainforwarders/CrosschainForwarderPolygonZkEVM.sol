@@ -13,14 +13,14 @@ interface IPolygonZkEVMBridge {
 }
 
 /**
- * @title A generic executor for proposals targeting the polygon v3 pool
+ * @title A generic executor for proposals targeting the polygon zkEVM v3 pool
  * @author BGD Labs
  * @notice You can **only** use this executor when the polygon payload has a `execute()` signature without parameters
  * @notice You can **only** use this executor when the polygon payload is expected to be executed via `DELEGATECALL`
- * @dev This executor is a generic wrapper to be used with FX bridges (https://github.com/fx-portal/contracts)
+ * @dev This executor is a generic wrapper to be used with the Polygon ZkEVM Bridge (https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/PolygonZkEVMBridge.sol)
  * It encodes a parameterless `execute()` with delegate calls and a specified target.
- * This encoded abi is then send to the FX-root to be synced to the FX-child on the polygon network.
- * Once synced the POLYGON_BRIDGE_EXECUTOR will queue the execution of the payload.
+ * This encoded abi is then sent to the PolygonZkEVMBridge L1 to be synced to the PolygonZkEVMBridge L2 on the polygon zkevm network.
+ * Once synced the POLYGON_ZKEVM_BRIDGE_EXECUTOR will queue the execution of the payload.
  */
 contract CrosschainForwarderPolygonZkEVM {
   IPolygonZkEVMBridge public constant POLYGON_ZKEVM_BRIDGE =
